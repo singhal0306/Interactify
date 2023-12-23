@@ -1,8 +1,9 @@
-const path= require('path');
 const pool = require("../src/mysql");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-
+const path= require('path');
+const dotenv = require("dotenv")
+dotenv.config({path: path.resolve(__dirname,"../.env")});
 
 exports.login = async (req, res) => {
     try {

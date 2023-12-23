@@ -2,6 +2,12 @@ const jwt = require("jsonwebtoken");
 const pool = require("../src/mysql");
 const { promisify } = require("util");
 
+
+const path = require("path")
+const dotenv = require("dotenv")
+
+dotenv.config({path: path.resolve(__dirname,"../.env")});
+
 exports.isLoggedIn = async (req, res, next) => {
     // console.log(req.cookies)
     if (req.cookies.jwt) {
@@ -17,7 +23,7 @@ exports.isLoggedIn = async (req, res, next) => {
                 }
                 else {
                     if (!result) {
-                        return next();
+                       return next();
                     }
                     req.user = result[0]
                     return next()
