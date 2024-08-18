@@ -1,0 +1,26 @@
+#drop-area{
+    width: 100%     ;
+    padding: 30px;
+    background: #fff;
+    text-align: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+#img-view{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    text-align: center;
+    border: 2px dashed #bbb5ff;
+    background: #f7f8ff;
+    background-position: center;
+    background-size: cover;
+}
+#img-view img{
+    text-align: center;
+    width: 100px;
+    margin-left: 150px;
+}
+

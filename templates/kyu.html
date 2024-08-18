@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .post-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #myModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 400px; /* Adjust the max-width as needed */
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        #closeBtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .file-upload {
+            margin-bottom: 20px;
+        }
+
+        .file-upload button {
+            border: 2px solid #ccc;
+            color: #333;
+            background-color: #fff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .file-upload input[type=file] {
+            position: absolute;
+            font-size: 100px;
+            opacity: 0;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        input, textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="post-container" onclick="openModal()">
+    <img src="https://via.placeholder.com/150" alt="Post Image" style="margin-right: 10px;">
+    <div>
+        <p>This is the post content.</p>
+        <button>Post</button>
+    </div>
+</div>
+
+<div id="myModal" onclick="closeModal()">
+    <div class="modal-content" onclick="event.stopPropagation();">
+        <span id="closeBtn" onclick="closeModal()">&times;</span>
+        <h2>Create Post</h2>
+
+        <div class="file-upload">
+            <button onclick="document.getElementById('imageInput').click()">Select Image</button>
+            <input type="file" id="imageInput" accept="image/*">
+        </div>
+
+        <label for="descriptionInput">Description:</label>
+        <textarea id="descriptionInput" placeholder="Enter description"></textarea>
+
+        <button onclick="postContent()">Post</button>
+    </div>
+</div>
+
+<script>
+    function openModal() {
+        document.getElementById('myModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+    }
+
+    function postContent() {
+        // You can access the uploaded file using document.getElementById('imageInput').files[0]
+        // Add your logic to handle the posted content here
+        closeModal();
+    }
+</script>
+
+</body>
+</html>
